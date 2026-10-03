@@ -1,0 +1,21 @@
+MACHINE-GENERATED INTERNAL EVIDENCE — USER MUST NARRATE/REWRITE BEFORE SUBMISSION.
+
+Final allowed source SHA-256:
+aca8da345564d8454876ab374c6d2be04033e70ef2d3ec1e7d8727179cc86f6e  cases/case-1/src/auth.ts
+7068a886eedb98f6801d82ea16e8b3fec290ccd70d9e7b5badf148f569495ec0  cases/case-1/src/config.ts
+0862523afaa3a34cbc488a602567f5eff3c92d658e4cc3ae79797f479ec02add  cases/case-1/src/events.ts
+6c1ff05c3b7a39f033c1679946524cc2b9d5e08f4fefa8543647d357638bda7c  cases/case-1/src/jobs.ts
+8b1f73f7756c73cecea52301e7373d4af91eedbbb687492634d8eff1c1969b90  cases/case-1/src/report.ts
+1009b5e9aa6f14d2b98e02870900c2335837b3561d55efb50eb614d92474ec28  cases/case-1/src/route.ts
+da7d9d6b2479bd1e6fa0006dc7085fadec6bec43db7a45e4dd675de64e893a97  cases/case-1/src/storage.ts
+
+Protected fixture hashes rechecked unchanged:
+81abc52e1051287cb6757ab6f26bf410cb1aadf45d57ef7485e4e323bc6911aa  cases/case-1/baseline/auth.ts
+66d772cbdc6c38caf04c435958a2636980e7849f1ec2d28d8e05593c5909e5be  cases/case-1/baseline/config.ts
+c04bdfd66b2c19691bd601cca01258e02b48bda5af49077702e2173fae461d78  cases/case-1/baseline/events.ts
+622024f4c8ba392dff81f657554b3c4de832ce05e55a9c0cc067486f0c413cde  cases/case-1/baseline/jobs.ts
+db622dc73a1924ae9a5b3f4b79b413bec49d0cd9c9185115e832c5315f11be03  cases/case-1/baseline/report.ts
+141c10664b3b7aff962e2e38d8e673afef01f4bff66e222e39237039d5d1c063  cases/case-1/baseline/route.ts
+dc34ee1f2dbc311cf8580c6ac3372bb5bdc8615a8ff9bdf23034f07f935e711c  cases/case-1/baseline/storage.ts
+9953dd44e5864fa82355514e3fc60759256d5077a76b417e1186bacdfa3c8a51  cases/case-1/certification/gate-manifest.json
+0ff8cee2eaaf62ce46324694e11c7b274d69ab98c24685be79c486580678d338  cases/case-1/certification/protected-files.json
