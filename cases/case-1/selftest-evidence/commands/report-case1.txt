@@ -1,0 +1,26 @@
+
+> factory-release-recovery-drill@0.0.0 report:case1
+> npm run verify:release
+
+
+> factory-release-recovery-drill@0.0.0 verify:release
+> node cases/case-1/scripts/check-integrity.cjs && npm run build --silent && node cases/case-1/scripts/verify.cjs
+
+GATE 01/18 PASS configuration normalization
+GATE 02/18 PASS owner session integrity
+GATE 03/18 PASS CSRF same-origin mutation guard
+GATE 04/18 PASS tenant isolation
+GATE 05/18 PASS idempotent submission
+GATE 06/18 PASS queue priority and order
+GATE 07/18 PASS submission route snapshot
+GATE 08/18 PASS provider model truth
+GATE 09/18 PASS graceful cancellation
+GATE 10/18 PASS retry backoff authority
+GATE 11/18 PASS event sequence monotonicity
+GATE 12/18 PASS resume cursor
+GATE 13/18 PASS artifact hash integrity
+GATE 14/18 PASS evidence manifest completeness
+GATE 15/18 PASS storage byte accounting
+GATE 16/18 PASS safe cleanup boundaries
+GATE 17/18 PASS operator summary truth
+GATE 18/18 PASS final release evidence consistency

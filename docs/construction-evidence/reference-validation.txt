@@ -1,0 +1,38 @@
+$ npm run validate:fixture
+
+> factory-release-recovery-drill@0.0.0 validate:fixture
+> node cases/case-1/scripts/validate.cjs
+
+PASS broken baseline compiles and stops at Gate 01
+PASS protected certification modification rejected
+PASS deterministic reset restores all seven source files byte-for-byte and removes extras
+GATE 01/18 PASS configuration normalization
+GATE 02/18 PASS owner session integrity
+GATE 03/18 PASS CSRF same-origin mutation guard
+GATE 04/18 PASS tenant isolation
+GATE 05/18 PASS idempotent submission
+GATE 06/18 PASS queue priority and order
+GATE 07/18 PASS submission route snapshot
+GATE 08/18 PASS provider model truth
+GATE 09/18 PASS graceful cancellation
+GATE 10/18 PASS retry backoff authority
+GATE 11/18 PASS event sequence monotonicity
+GATE 12/18 PASS resume cursor
+GATE 13/18 PASS artifact hash integrity
+GATE 14/18 PASS evidence manifest completeness
+GATE 15/18 PASS storage byte accounting
+GATE 16/18 PASS safe cleanup boundaries
+GATE 17/18 PASS operator summary truth
+GATE 18/18 PASS final release evidence consistency
+PASS external reference 18/18; evidence digest and deterministic report:case1 outputs verified
+PASS npm test also accepts repaired reference state
+PASS module regression blocked at Gate 01
+PASS module regression blocked at Gate 02
+PASS module regression blocked at Gate 04
+PASS module regression blocked at Gate 07
+PASS module regression blocked at Gate 11
+PASS module regression blocked at Gate 13
+PASS module regression blocked at Gate 17
+PASS finally restored broken baseline byte-for-byte; generated outputs removed
+
+EXIT 0

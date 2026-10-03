@@ -1,0 +1,44 @@
+{
+  "commands": [
+    {
+      "command": "npm test",
+      "exit": 0,
+      "expected_exit": 0,
+      "receipt": "harness-test.txt"
+    },
+    {
+      "command": "npm run verify:release",
+      "exit": 1,
+      "expected_exit": 1,
+      "receipt": "broken-baseline.txt"
+    },
+    {
+      "command": "npm run validate:fixture",
+      "exit": 0,
+      "expected_exit": 0,
+      "receipt": "reference-validation.txt"
+    },
+    {
+      "command": "npm run validate:fixture -- --portable",
+      "exit": 0,
+      "expected_exit": 0,
+      "receipt": "portable-validation.txt"
+    },
+    {
+      "command": "npm run reset:case1",
+      "exit": 0,
+      "expected_exit": 0,
+      "receipt": "reset.txt"
+    }
+  ],
+  "source_equals_baseline": true,
+  "restored_source_hashes": {
+    "auth.ts": "81abc52e1051287cb6757ab6f26bf410cb1aadf45d57ef7485e4e323bc6911aa",
+    "config.ts": "66d772cbdc6c38caf04c435958a2636980e7849f1ec2d28d8e05593c5909e5be",
+    "events.ts": "c04bdfd66b2c19691bd601cca01258e02b48bda5af49077702e2173fae461d78",
+    "jobs.ts": "622024f4c8ba392dff81f657554b3c4de832ce05e55a9c0cc067486f0c413cde",
+    "report.ts": "db622dc73a1924ae9a5b3f4b79b413bec49d0cd9c9185115e832c5315f11be03",
+    "route.ts": "141c10664b3b7aff962e2e38d8e673afef01f4bff66e222e39237039d5d1c063",
+    "storage.ts": "dc34ee1f2dbc311cf8580c6ac3372bb5bdc8615a8ff9bdf23034f07f935e711c"
+  }
+}

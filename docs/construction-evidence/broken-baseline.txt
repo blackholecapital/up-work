@@ -1,0 +1,9 @@
+$ npm run verify:release
+
+> factory-release-recovery-drill@0.0.0 verify:release
+> node cases/case-1/scripts/check-integrity.cjs && npm run build --silent && node cases/case-1/scripts/verify.cjs
+
+GATE 01/18 FAIL configuration normalization
+origin must be a canonical authority
+
+EXIT 1

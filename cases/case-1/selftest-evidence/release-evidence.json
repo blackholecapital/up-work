@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "gateHash": "5cc18732f696675afc1317e7b97c408a49b7623f9523f2dd724f4356475710c8",
+  "summary": {
+    "tenant": "foundry-a",
+    "total": 4,
+    "completed": 3,
+    "canceled": 1,
+    "active": 0,
+    "bytes": 215,
+    "lastEvent": 20
+  },
+  "manifests": [
+    {
+      "job": "job-1",
+      "tenant": "foundry-a",
+      "route": {
+        "provider": "synthetic-a",
+        "model": "assembly-small",
+        "revision": 1
+      },
+      "actual": {
+        "provider": "synthetic-a",
+        "model": "assembly-small",
+        "receipt": "synthetic-a/assembly-small@1"
+      },
+      "artifacts": [
+        {
+          "tenant": "foundry-a",
+          "job": "job-1",
+          "kind": "receipt",
+          "bytes": 92,
+          "sha256": "004bb80a77f9744cae602d0e077b863be22c9dfe81af8eb34a43326ee19c6785",
+          "created": 0
+        },
+        {
+          "tenant": "foundry-a",
+          "job": "job-1",
+          "kind": "result",
+          "bytes": 14,
+          "sha256": "e6ec82025df61bdc942d6c5c8033f73af7844cd73209f70b6da401d460eacb8b",
+          "created": 0
+        }
+      ]
+    },
+    {
+      "job": "job-4",
+      "tenant": "foundry-a",
+      "route": {
+        "provider": "synthetic-a",
+        "model": "assembly-small",
+        "revision": 1
+      },
+      "actual": {
+        "provider": "synthetic-a",
+        "model": "assembly-small",
+        "receipt": "synthetic-a/assembly-small@1"
+      },
+      "artifacts": [
+        {
+          "tenant": "foundry-a",
+          "job": "job-4",
+          "kind": "receipt",
+          "bytes": 92,
+          "sha256": "004bb80a77f9744cae602d0e077b863be22c9dfe81af8eb34a43326ee19c6785",
+          "created": 320
+        },
+        {
+          "tenant": "foundry-a",
+          "job": "job-4",
+          "kind": "result",
+          "bytes": 17,
+          "sha256": "a8000d71f808a6445587849061b6f74c84f3e14d0e9237b51cdc47be0cf9326d",
+          "created": 320
+        }
+      ]
+    },
+    {
+      "job": "job-5",
+      "tenant": "foundry-a",
+      "route": {
+        "provider": "synthetic-b",
+        "model": "assembly-large",
+        "revision": 2
+      },
+      "actual": {
+        "provider": "synthetic-b",
+        "model": "assembly-large",
+        "receipt": "synthetic-b/assembly-large@2"
+      },
+      "artifacts": []
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "tenant": "foundry-a",
+      "job": "job-1",
+      "type": "submitted",
+      "at": 0
+    },
+    {
+      "seq": 3,
+      "tenant": "foundry-a",
+      "job": "job-3",
+      "type": "submitted",
+      "at": 0
+    },
+    {
+      "seq": 4,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "submitted",
+      "at": 0
+    },
+    {
+      "seq": 5,
+      "tenant": "foundry-a",
+      "job": "job-3",
+      "type": "started",
+      "at": 0
+    },
+    {
+      "seq": 6,
+      "tenant": "foundry-a",
+      "job": "job-3",
+      "type": "canceling",
+      "at": 1
+    },
+    {
+      "seq": 7,
+      "tenant": "foundry-a",
+      "job": "job-3",
+      "type": "canceled",
+      "at": 2
+    },
+    {
+      "seq": 8,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "started",
+      "at": 10
+    },
+    {
+      "seq": 9,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "retry",
+      "at": 10
+    },
+    {
+      "seq": 10,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "started",
+      "at": 110
+    },
+    {
+      "seq": 11,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "retry",
+      "at": 110
+    },
+    {
+      "seq": 12,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "started",
+      "at": 310
+    },
+    {
+      "seq": 13,
+      "tenant": "foundry-a",
+      "job": "job-4",
+      "type": "completed",
+      "at": 311
+    },
+    {
+      "seq": 14,
+      "tenant": "foundry-a",
+      "job": "job-1",
+      "type": "started",
+      "at": 312
+    },
+    {
+      "seq": 15,
+      "tenant": "foundry-a",
+      "job": "job-1",
+      "type": "completed",
+      "at": 313
+    },
+    {
+      "seq": 18,
+      "tenant": "foundry-a",
+      "job": "job-5",
+      "type": "submitted",
+      "at": 0
+    },
+    {
+      "seq": 19,
+      "tenant": "foundry-a",
+      "job": "job-5",
+      "type": "started",
+      "at": 400
+    },
+    {
+      "seq": 20,
+      "tenant": "foundry-a",
+      "job": "job-5",
+      "type": "completed",
+      "at": 401
+    }
+  ],
+  "sha256": "e7466bcdf6ab39e939fd9e0f17a1fdb6d01f0060d19c28052783ac588d33b678"
+}
