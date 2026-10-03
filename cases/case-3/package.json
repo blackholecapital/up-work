@@ -2,9 +2,9 @@
   "name": "synthetic-case-3-sip-media",
   "private": true,
   "scripts": {
-    "certify": "tsx protected/certify.ts",
-    "integrity": "tsx protected/verify-integrity.ts",
-    "reset": "tsx protected/reset-baseline.ts"
+    "certify": "npx --yes tsx protected/certify.ts",
+    "integrity": "npx --yes tsx protected/verify-integrity.ts",
+    "reset": "npx --yes tsx protected/reset-baseline.ts"
   },
   "devDependencies": { "tsx": "^4.19.2", "typescript": "^5.6.3" }
 }
