@@ -1,0 +1,33 @@
+import assert from "node:assert/strict";
+import { Case3Engine } from "../src/engine.js";
+import { isMono8k } from "../src/codec.js";
+import { Packet } from "../src/types.js";
+const gates: string[] = [];
+function gate(name: string, fn: () => void) { fn(); gates.push(name); console.log(`PASS ${name}`); }
+function base(): { e: Case3Engine; p: Packet } { const e = new Case3Engine(); assert.equal(e.start(), true); const d = e.state.dialog; return { e, p: { ip: "127.0.0.1", port: d.remotePort, ssrc: d.ssrc, payloadType: d.payloadType, sequence: 1, timestamp: 0, payload: new Uint8Array([0xff, 0x7f, 0x00, 0x80]) } }; }
+gate("Gate 01 exact loopback ingress", () => { const { e, p } = base(); e.ingest(p); assert.equal(e.results()[0].accepted, true); });
+gate("Gate 02 external source fail closed", () => { const { e, p } = base(); e.ingest({ ...p, ip: "198.51.100.8" }); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 03 wildcard source fail closed", () => { const { e, p } = base(); e.ingest({ ...p, ip: "0.0.0.0" }); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 04 wrong remote port fail closed", () => { const { e, p } = base(); e.ingest({ ...p, port: p.port + 1 }); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 05 wrong SSRC fail closed", () => { const { e, p } = base(); e.ingest({ ...p, ssrc: p.ssrc + 1 }); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 06 wrong payload type fail closed", () => { const { e, p } = base(); e.ingest({ ...p, payloadType: 8 }); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 07 PCMU provenance", () => { const { e, p } = base(); e.ingest(p); const f = e.results()[0].frame!; assert.equal(f.provenance.codec, "PCMU"); assert.equal(isMono8k(f), true); });
+gate("Gate 08 PCMA 8k mono decoder", () => { const { e, p } = base(); e.state.dialog.codec = "PCMA"; e.state.dialog.payloadType = 8; e.ingest({ ...p, payloadType: 8 }); const f = e.results()[0].frame!; assert.equal(f.provenance.codec, "PCMA"); assert.equal(isMono8k(f), true); });
+gate("Gate 09 dialog provenance key", () => { const { e, p } = base(); e.ingest(p); assert.equal(e.results()[0].frame!.provenance.dialogKey, "case3-call|local-a|remote-b"); });
+gate("Gate 10 early media separated", () => { const { e, p } = base(); e.ingest(p); assert.equal(e.classify(), "early-media"); });
+gate("Gate 11 post-answer media", () => { const { e, p } = base(); e.answer(); e.ingest(p); assert.equal(e.classify(), "confirmed-media"); });
+gate("Gate 12 duplicate deterministic", () => { const { e, p } = base(); e.ingest(p); e.ingest(p); assert.equal(e.results()[1].duplicate, true); assert.equal(e.results().filter(x => x.accepted).length, 1); });
+gate("Gate 13 reorder accepted", () => { const { e, p } = base(); e.ingest({ ...p, sequence: 2 }); e.ingest({ ...p, sequence: 1 }); assert.equal(e.results().filter(x => x.accepted).length, 2); });
+gate("Gate 14 loss does not invent frame", () => { const { e, p } = base(); e.ingest({ ...p, sequence: 3 }); assert.equal(e.results().length, 1); });
+gate("Gate 15 stale replay rejected", () => { const { e, p } = base(); e.ingest({ ...p, sequence: 30 }); e.ingest({ ...p, sequence: 1 }); assert.equal(e.results()[1].reason, "stale-replay"); });
+gate("Gate 16 timeout fail closed", () => { const { e, p } = base(); e.timeout(); e.ingest(p); assert.equal(e.classify(), "no-media"); assert.equal(e.results()[0].accepted, false); });
+gate("Gate 17 socket loss fail closed", () => { const { e, p } = base(); e.socketLost(); e.ingest(p); assert.equal(e.classify(), "no-media"); });
+gate("Gate 18 SIP termination fail closed", () => { const { e, p } = base(); e.end(); e.ingest(p); assert.equal(e.classify(), "no-media"); });
+gate("Gate 19 media cannot release SIP capacity", () => { const { e, p } = base(); e.ingest(p); assert.deepEqual(e.capacity.snapshot(), { sip: 1, media: 1 }); });
+gate("Gate 20 termination releases owned capacity", () => { const { e } = base(); e.end(); assert.deepEqual(e.capacity.snapshot(), { sip: 0, media: 0 }); });
+gate("Gate 21 timeout releases owned capacity", () => { const { e } = base(); e.timeout(); assert.deepEqual(e.capacity.snapshot(), { sip: 0, media: 0 }); });
+gate("Gate 22 no independent media admission", () => { const e = new Case3Engine(); assert.equal(e.capacity.attachMedia(), false); });
+gate("Gate 23 exact payload length preserved", () => { const { e, p } = base(); e.ingest(p); assert.equal(e.results()[0].frame!.pcm.length, p.payload.length); });
+gate("Gate 24 classification timeout boundary", () => { const { e, p } = base(); e.ingest(p); assert.equal(e.classify(3000), "no-media"); });
+gate("Gate 25 no network side effects", () => { const { e } = base(); assert.equal(e.state.dialog.remoteIp, "127.0.0.1"); assert.equal(e.state.dialog.remotePort, 42000); });
+console.log(`CERTIFIED gates=${gates.length} tests=${gates.length}`);

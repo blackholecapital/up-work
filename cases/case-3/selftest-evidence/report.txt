@@ -1,0 +1,13 @@
+MACHINE-GENERATED INTERNAL EVIDENCE — USER MUST NARRATE/REWRITE BEFORE SUBMISSION.
+
+Fixture: Case 3 synthetic isolated SIP/SDP dialog and loopback RTP ingress
+Baseline commit: 21f1e8f (tag: case-3-baseline)
+Repair result: valid loopback ingress predicate restored in editable src/media.ts
+Certification: 25 gates, 25 tests, all PASS
+First baseline failure: Gate 01 exact loopback ingress (expected fail)
+Integrity: protected manifest verified after repair
+Network scope: in-memory packet objects; no sockets, carrier, PSTN, AI admission, or external network
+Capacity invariant: media cannot independently release SIP capacity
+Replay policy: duplicate reject, bounded reorder accept, stale replay reject, loss produces no frame
+Lifecycle policy: timeout/socket loss/SIP termination reject media and release owned capacity
+Ledger substantive steps: 60

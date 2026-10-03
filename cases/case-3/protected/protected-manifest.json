@@ -1,0 +1,6 @@
+{
+  "protected/certify.ts": "24afc69c1d31f69aafa1e5a2f7a83a67d91d5876247e4bbcfd10c205bac89181",
+  "protected/verify-integrity.ts": "6fad1ae0034eb6beaef291da92c492dfe51538ec26463caedd714d0488f54abe",
+  "protected/reset-baseline.ts": "838338c2eea79a319b7cff37e70cce655f76b9dd761581f512053cce34880133",
+  "acceptance.sh": "73e66e8b5491bd5a7441a9467ea89e5137de79411a8b9f4945d1e17f8eb90ae3"
+}
