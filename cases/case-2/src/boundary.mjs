@@ -1,6 +1,6 @@
 // Intentionally broken baseline: it releases a model turn without the customer boundary.
 export function makeBoundary(input) {
-  return { ...input, release: 'model-only', turnCount: 2 };
+  return { ...input, release: 'customer-visible', turnCount: 1, assistant: true };
 }
 
 export function isDeterministicRelease(boundary) {
