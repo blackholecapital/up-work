@@ -1,0 +1,122 @@
+
+> report
+> node protected/run-case.mjs report
+
+{
+  "generatedAt": "2026-10-03T05:48:56.801Z",
+  "machineGenerated": true,
+  "integrityOk": true,
+  "gateCount": 18,
+  "executed": 18,
+  "allPassed": true,
+  "results": [
+    {
+      "id": "G01",
+      "name": "deterministic one-turn release boundary",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G02",
+      "name": "question count is within policy",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G03",
+      "name": "questions are unique after normalization",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G04",
+      "name": "destination is exact approved URL",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G05",
+      "name": "destination is HTTPS on approved host",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G06",
+      "name": "price has structured USD shape",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G07",
+      "name": "price amount and unit match approval",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G08",
+      "name": "completed claim follows normalized confirmed tool result",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G09",
+      "name": "action authority matches confirmed action",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G10",
+      "name": "stale contact literal is detectable",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G11",
+      "name": "released text contains only current contact",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G12",
+      "name": "repair is bounded to one attempt",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G13",
+      "name": "second repair attempt deterministically falls back",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G14",
+      "name": "callback has no appointment time",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G15",
+      "name": "appointment retains appointment time",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G16",
+      "name": "response assembly preserves bounded fields",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G17",
+      "name": "fixture is synthetic and offline",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "G18",
+      "name": "policy fallback is stable",
+      "passed": true,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "fixtures.mjs": "4d6d20b2dec0ec318488c2ad956f78c24018aa0ff12bd9aaab0f69fe705f46b9",
+  "gates.mjs": "eeb7a6cc779e76865d390c60b9bb686a285603f7df4cc7ea0b4fd70ca4157317",
+  "integrity.mjs": "d0fa26cbbd17a25d8bee44f514fa6d1e4219a5042ec6599ede7f328e0cefdbd9",
+  "reset-baseline.mjs": "8fec60b3dfa8321c5858276a9dc053188c6b815fce41b680f4e52c99ff6c4e2e",
+  "run-case.mjs": "044f91a08f6d573d8b02c9425396b3acc682ef3a0ac19edf85fac4f7436e071f",
+  "selftest-run.mjs": "0bd015dc098d92e86052390d6e5ad5091dc601a0554cd61fc7175efc3ab0629b"
+}

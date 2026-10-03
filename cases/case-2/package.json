@@ -1,0 +1,12 @@
+{
+  "name": "upwork-benchmark-case-2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node protected/run-case.mjs test",
+    "verify": "node protected/run-case.mjs verify",
+    "report": "node protected/run-case.mjs report",
+    "reset": "node protected/reset-baseline.mjs",
+    "selftest": "node protected/selftest-run.mjs"
+  }
+}
