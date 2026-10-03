@@ -1,0 +1,13 @@
+# Operator notes
+
+Start from the committed broken baseline. Run `npm test` to check the harness, then `npm run verify:release` to find the first failing release invariant. Inspect the application modules and certification contracts, repair allowed source, and rerun certification. The tests expose behavior, but contain no reference implementation. `npm test` alone is not release acceptance.
+
+The scenario uses explicit integer clock values, two invented tenants, a globally ordered stream and an in-memory artifact store. There are no timers, random inputs, external services or persisted application databases. The release report certifies this deterministic scenario, not a production security audit. Retained completed jobs, a canceled job, and a cleaned historical output share the same ledger; later checks reconcile the ledger against event and storage evidence.
+
+Gate sequence: configuration normalization → owner session integrity → CSRF/same-origin mutation guard → tenant isolation → idempotent submission → queue priority/order → submission-time route snapshot immutability → actual provider/model truth → graceful cancellation → retry/backoff authority → event sequence monotonicity → resume cursor → artifact hash integrity → evidence manifest completeness → storage byte accounting → safe cleanup boundaries → operator summary truth → final release evidence consistency.
+
+Only `cases/case-1/src/**/*.ts` is editable. Do not modify protected files, hash manifests, trust anchors, baseline copies, scripts, tests, package metadata or TypeScript configuration to obtain a pass. Keep the fixture commit and Git metadata as the trusted evaluation base. Generated files are disposable and not an alternate source of truth. Always invoke the package commands so certification recompiles the application.
+
+`npm run reset:case1` intentionally erases all source repairs and added source files, restoring the seven baseline files byte-for-byte. It also removes `dist/` and `output/`. `npm run validate:fixture` has the same destructive final restoration behavior, including when a construction assertion fails. Do not run it to accept a solver's repaired work. Do not interrupt construction reference substitution with SIGKILL; JavaScript `finally` cannot run after forced process death. A subsequent reset safely restores the baseline.
+
+A successful release requires both output files, 18 PASS lines, exit 0 and a SHA-256 digest binding the evidence payload. `report:case1` reruns the same certification and regenerates those files deterministically. The committed receipts are construction evidence and contain no repaired source. Dependency installation is the only potential network operation; fixture commands and tests run locally.

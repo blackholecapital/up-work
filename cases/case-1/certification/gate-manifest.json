@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "gates": [
+    {
+      "id": 1,
+      "name": "configuration normalization",
+      "requires": []
+    },
+    {
+      "id": 2,
+      "name": "owner session integrity",
+      "requires": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "name": "CSRF same-origin mutation guard",
+      "requires": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "name": "tenant isolation",
+      "requires": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "name": "idempotent submission",
+      "requires": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "name": "queue priority and order",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "name": "submission route snapshot",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": 8,
+      "name": "provider model truth",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": 9,
+      "name": "graceful cancellation",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": 10,
+      "name": "retry backoff authority",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 11,
+      "name": "event sequence monotonicity",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": 12,
+      "name": "resume cursor",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": 13,
+      "name": "artifact hash integrity",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 14,
+      "name": "evidence manifest completeness",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 15,
+      "name": "storage byte accounting",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 16,
+      "name": "safe cleanup boundaries",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": 17,
+      "name": "operator summary truth",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": 18,
+      "name": "final release evidence consistency",
+      "requires": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "integrity": "5cc18732f696675afc1317e7b97c408a49b7623f9523f2dd724f4356475710c8"
+}

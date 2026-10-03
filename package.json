@@ -1,0 +1,20 @@
+{
+  "name": "factory-release-recovery-drill",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc -p cases/case-1/tsconfig.json",
+    "test": "node cases/case-1/scripts/check-integrity.cjs && npm run build --silent && node --test cases/case-1/certification/release.test.cjs",
+    "verify:release": "node cases/case-1/scripts/check-integrity.cjs && npm run build --silent && node cases/case-1/scripts/verify.cjs",
+    "reset:case1": "node cases/case-1/scripts/reset.cjs",
+    "report:case1": "npm run verify:release",
+    "validate:fixture": "node cases/case-1/scripts/validate.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "18.19.130",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

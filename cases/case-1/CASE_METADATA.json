@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "id": "case-1",
+  "title": "Factory Release Recovery Drill",
+  "kind": "synthetic long-horizon repair fixture",
+  "status": "constructed broken baseline; not benchmark self-test",
+  "base_commit": "2f83d7e1691824de3145527def3a564dadf8e26a",
+  "branch": "case1/release-recovery-fixture",
+  "runtime": "Node >=18 / TypeScript 5.9.3",
+  "gate_count": 18,
+  "gate_manifest": "certification/gate-manifest.json",
+  "protected_manifest": "certification/protected-files.json",
+  "editable_paths": [
+    "cases/case-1/src/**/*.ts"
+  ],
+  "baseline_files": [
+    "auth.ts",
+    "config.ts",
+    "events.ts",
+    "jobs.ts",
+    "report.ts",
+    "route.ts",
+    "storage.ts"
+  ],
+  "expected_baseline": {
+    "npm test": 0,
+    "npm run verify:release": 1,
+    "first_failure": 1
+  },
+  "acceptance_commands": [
+    "npm test",
+    "npm run verify:release",
+    "npm run report:case1"
+  ],
+  "required_outputs": [
+    "cases/case-1/output/release-evidence.json",
+    "cases/case-1/output/RELEASE_REPORT.md"
+  ],
+  "construction_reference": {
+    "included": false,
+    "solver_available": false,
+    "required_for_clean_clone_acceptance": false
+  },
+  "network_at_runtime": false,
+  "real_data": false,
+  "authorship": "machine-generated internal fixture construction"
+}

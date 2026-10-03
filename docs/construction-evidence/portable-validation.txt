@@ -1,0 +1,12 @@
+$ npm run validate:fixture -- --portable
+
+> factory-release-recovery-drill@0.0.0 validate:fixture
+> node cases/case-1/scripts/validate.cjs --portable
+
+PASS broken baseline compiles and stops at Gate 01
+PASS protected certification modification rejected
+PASS deterministic reset restores all seven source files byte-for-byte and removes extras
+PASS portable fixture checks; reference unavailable in clean clone (18/18 construction receipt is committed)
+PASS finally restored broken baseline byte-for-byte; generated outputs removed
+
+EXIT 0

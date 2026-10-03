@@ -1,0 +1,8 @@
+$ npm run reset:case1
+
+> factory-release-recovery-drill@0.0.0 reset:case1
+> node cases/case-1/scripts/reset.cjs
+
+Case 1 application restored to intentionally broken baseline; generated output removed.
+
+EXIT 0
